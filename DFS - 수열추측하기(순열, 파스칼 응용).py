@@ -3,11 +3,13 @@ sys.stdin = open("input.txt", "r")
 
 def DFS(L):
     if(L == N):
+        resTemp = res
         for i in range(N-1, 0, -1):
             for j in range(0,i):
                 res[j] = res[j]+res[j+1]
+
         if(res[0] == F):
-            print(res[0])
+            print(resTemp)
             #프로그램 자체를 종료한다
     else:
         for i in range(1,N+1):
@@ -24,4 +26,5 @@ if __name__ == "__main__":
     N, F=map(int, input().split())
     ch = [0]*(N+1)
     res = []
+    resTemp=[]
     DFS(0)
