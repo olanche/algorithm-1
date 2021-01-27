@@ -1,28 +1,24 @@
 import sys
 sys.stdin=open("input.txt", "r")
 
-def DFS(L):
+def DFS(L,s):
+    global cnt
     if L == M :
-        temp = set(res)
-        if (temp in f):
-            return
-        else:
-            f.append(temp)
-            print(temp)
-        
+        for j in range(0,M):
+            print(res[j], end=" ")
+
+        print()
+        cnt = cnt+1
         
     else:
-        for i in range(1, N+1):
-            if ch[i] == 0 :
-                ch[i] = 1
-                res[L] = i
-                DFS(L+1)
-                ch[i] = 0
+        for i in range(s, N+1):
+            res[L] = i
+            DFS(L+1, i+1)
 
 
 if __name__ == "__main__":
     N, M = map(int, input().split())
-    ch = [0]*(N+1)
-    res = [0]*(N+1)
-    f = []
-    DFS(0)
+    cnt = 0
+    res = [0]*(M)
+    DFS(0,1)
+    print(cnt)
