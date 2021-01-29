@@ -24,5 +24,6 @@ if __name__ == "__main__":
         temp = bi[i-1] * (N-i)
         temp = temp // i
         bi[i] = temp
+        #이항계수를 구하는 과정임
     DFS(0, 0)
 
